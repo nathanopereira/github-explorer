@@ -1,6 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import githubBackground from '../assets/github-background.svg';
+
+export const Signature = styled.small`
+  a {
+    display: flex;
+    margin-top: 80px;
+    text-decoration: none;
+    color: #0366d6;
+  }
+`;
 
 export default createGlobalStyle`
   *{

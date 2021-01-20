@@ -55,6 +55,12 @@ export const Form = styled.form<FormProps>`
   }
 `;
 
+export const Help = styled.small`
+  color: #666;
+  margin-top: 5px;
+  display: block;
+`;
+
 export const Repositories = styled.div`
   margin-top: 80px;
   max-width: 700px;

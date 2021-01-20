@@ -1,10 +1,10 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 import api from '../../services/api';
-
 import logoImg from '../../assets/logo.svg';
-
-import { Title, Form, Repositories, Error } from './styles';
+import { Title, Form, Repositories, Error, Help } from './styles';
 
 interface Repository {
   full_name: string;
@@ -76,12 +76,21 @@ const Dashboard: React.FC = () => {
         />
         <button type="submit">Pesquisar</button>
       </Form>
+      <Help>
+        Exemplo:&nbsp;
+        <strong>facebook/react</strong>
+        &nbsp;ou&nbsp;
+        <strong>angular/angular</strong>
+      </Help>
 
       {inputError && <Error>{inputError}</Error>}
 
       <Repositories>
         {repositories.map(repository => (
-          <a key={repository.full_name} href="teste">
+          <Link
+            key={repository.full_name}
+            to={`/repositories/${repository.full_name}`}
+          >
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
@@ -92,7 +101,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             <FiChevronRight size={20} />
-          </a>
+          </Link>
         ))}
       </Repositories>
     </>
